@@ -10,7 +10,7 @@ export class ContentParser {
         linkify: true,
         typographer: true,
         breaks: true,
-        quotes: '""''',
+        quotes: '"\'"',
       });
 
       // Add plugins if available
