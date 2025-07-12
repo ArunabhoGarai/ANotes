@@ -48,6 +48,103 @@ mjx-container {
   font-size: 16px;
 }
 
+/* markdown-it specific enhancements */
+.math-content .markdown-body {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Enhanced list styling for markdown-it */
+.math-content ul,
+.math-content ol {
+  @apply mb-5 space-y-2;
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.math-content ul {
+  @apply list-disc list-outside;
+}
+
+.math-content ol {
+  @apply list-decimal list-outside;
+}
+
+.math-content li {
+  @apply text-gray-700 leading-relaxed;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.math-content li > ul,
+.math-content li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Enhanced definition lists (markdown-it-deflist) */
+.math-content dl {
+  @apply mb-5;
+}
+
+.math-content dt {
+  @apply font-semibold text-gray-800 mt-4 mb-1;
+}
+
+.math-content dd {
+  @apply ml-6 mb-2 text-gray-700;
+}
+
+/* Enhanced abbreviations (markdown-it-abbr) */
+.math-content abbr {
+  @apply border-b border-dotted border-gray-400 cursor-help;
+}
+
+/* Enhanced marks and insertions */
+.math-content mark {
+  @apply bg-yellow-200 px-1 rounded;
+}
+
+.math-content ins {
+  @apply bg-green-100 text-green-800 no-underline px-1 rounded;
+}
+
+/* Enhanced subscript and superscript */
+.math-content sub,
+.math-content sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.math-content sub {
+  bottom: -0.25em;
+}
+
+.math-content sup {
+  top: -0.5em;
+}
+
+/* Enhanced footnotes (markdown-it-footnote) */
+.math-content .footnote-ref {
+  @apply text-blue-600 hover:text-blue-800 no-underline;
+}
+
+.math-content .footnote-backref {
+  @apply text-blue-600 hover:text-blue-800 no-underline ml-1;
+}
+
+.math-content .footnotes {
+  @apply mt-8 pt-4 border-t border-gray-300;
+}
+
+.math-content .footnotes ol {
+  @apply text-sm text-gray-600;
+}
+
 .math-content h1 {
   @apply text-3xl font-bold text-gray-800 mt-8 mb-6;
   line-height: 1.3;
