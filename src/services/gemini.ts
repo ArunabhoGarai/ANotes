@@ -81,6 +81,9 @@ CRITICAL FORMATTING AND STRUCTURE REQUIREMENTS:
 
 ## Content Organization:
 1. **Clear Hierarchical Structure**: Use proper markdown headings (##, ###, ####)
+2. Always provide a spacing after the mark down heading symbols ( For eg : Incorrect: ##This is not a heading
+
+Correct: ## This is a heading)
 2. **Logical Flow**: Organize from basic concepts to advanced topics
 3. **Comprehensive Coverage**: Include definitions, explanations, examples, formulas, and applications
 4. **Proper Spacing**: Use double line breaks between sections for readability
