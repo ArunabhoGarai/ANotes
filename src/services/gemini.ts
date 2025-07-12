@@ -113,7 +113,7 @@ Ensure correct LaTeX syntax within the dollar signs.
 
 
 IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation`
-;
+:
 
     try {
       const response = await this.genAI.models.generateContent({
