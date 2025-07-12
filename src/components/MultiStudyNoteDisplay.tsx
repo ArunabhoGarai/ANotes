@@ -56,7 +56,14 @@ export const MultiStudyNoteDisplay: React.FC<MultiStudyNoteDisplayProps> = ({
   // Initialize math rendering when component mounts or content changes
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      if (typeof window !== 'undefined' && (window as any).renderMathInElement) {
+      // Try MathJax first (better for complex expressions)
+      if (typeof window !== 'undefined' && (window as any).MathJax) {
+        (window as any).MathJax.typesetPromise().catch((err: any) => {
+          console.warn('MathJax rendering error:', err);
+        });
+      }
+      // Fallback to KaTeX
+      else if (typeof window !== 'undefined' && (window as any).renderMathInElement) {
         (window as any).renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},

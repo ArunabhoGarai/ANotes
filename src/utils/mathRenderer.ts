@@ -57,8 +57,14 @@ export class MathRenderer {
 
   // Initialize auto-rendering when content is updated
   static initializeAutoRender() {
-    if (typeof window !== 'undefined' && (window as any).renderMathInElement) {
-      // Auto-render math in the entire document
+    // Try MathJax first (better for complex expressions)
+    if (typeof window !== 'undefined' && (window as any).MathJax) {
+      (window as any).MathJax.typesetPromise().catch((err: any) => {
+        console.warn('MathJax rendering error:', err);
+      });
+    }
+    // Fallback to KaTeX
+    else if (typeof window !== 'undefined' && (window as any).renderMathInElement) {
       (window as any).renderMathInElement(document.body, {
         delimiters: [
           {left: '$$', right: '$$', display: true},

@@ -5,6 +5,42 @@
 /* Import KaTeX CSS for mathematical rendering */
 @import 'katex/dist/katex.min.css';
 
+/* MathJax styling overrides */
+.MathJax {
+  outline: none !important;
+  font-size: 1.1em !important;
+}
+
+.MathJax_Display {
+  margin: 1em 0 !important;
+  text-align: center !important;
+}
+
+.MathJax svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* MathJax error styling */
+.MathJax_Error {
+  color: #cc0000 !important;
+  background-color: #ffeeee !important;
+  border: 1px solid #cc0000 !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+}
+
+/* Enhanced MathJax display styling */
+mjx-container[display="true"] {
+  margin: 1.5em 0 !important;
+  text-align: center !important;
+}
+
+mjx-container {
+  line-height: 1.2 !important;
+}
+
 /* Enhanced content styling for better readability */
 .math-content {
   @apply text-gray-700 leading-relaxed;
@@ -183,19 +219,7 @@
 }
 
 /* MathJax styling overrides */
-.MathJax {
-  outline: none !important;
-}
-
-.MathJax_Display {
-  margin: 1em 0 !important;
-  text-align: center !important;
-}
-
-.MathJax svg {
-  display: inline-block !important;
-  vertical-align: middle !important;
-}
+/* Moved to top of file for better organization */
 
 /* KaTeX styling overrides */
 .katex {
