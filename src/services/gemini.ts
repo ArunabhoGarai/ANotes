@@ -57,36 +57,42 @@ CRITICAL FORMATTING REQUIREMENTS:
 - Use *italics* for emphasis and definitions
 - Ensure proper line spacing with double line breaks between sections
 - Use blockquotes (>) for important notes or key takeaways
-- Use code blocks (\`\`\`) for formulas that need special formatting
+- Use code blocks for formulas that need special formatting
 - Maintain consistent indentation for nested lists
 - Use horizontal rules (---) to separate major sections
 
-IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation:
-- For inline math: $expression$ (e.g., $E = mc^2$, $\\pi r^2$, $\\frac{1}{2}mv^2$)
-- For display math: $$expression$$ (e.g., $$\\frac{d}{dx}f(x) = f'(x)$$, $$\\int_0^\\infty e^{-x} dx = 1$$)
-- For chemical formulas: Use proper notation like H_2O, CO_2, C_6H_{12}O_6
-- For complex equations: Use proper LaTeX formatting with \\frac{}{}, \\sqrt{}, \\sum_{}, \\int_{}, etc.
-- Include Greek letters: \\alpha, \\beta, \\gamma, \\delta, \\theta, \\lambda, \\mu, \\pi, \\sigma, \\omega
-- Use proper mathematical operators: \\times, \\div, \\pm, \\leq, \\geq, \\neq, \\approx
+IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation
 - Include proper mathematical symbols and notation where relevant
 
-Examples of good LaTeX formatting:
-- Quadratic formula: $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$
-- Kinetic energy: $KE = \\frac{1}{2}mv^2$
-- Photosynthesis: $6CO_2 + 6H_2O \\rightarrow C_6H_{12}O_6 + 6O_2$
-- Integral: $$\\int_a^b f(x) dx = F(b) - F(a)$$`
-      : `Make elaborate and detailed study notes in simple language on the topic: "${topic}"
+
+      Make elaborate and detailed study notes in simple language on the topic: "${topic}"
 
 CRITICAL FORMATTING AND STRUCTURE REQUIREMENTS:
 
-## Content Organization:
+ Content Organization:
 1. **Clear Hierarchical Structure**: Use proper markdown headings (##, ###, ####)
 2. Always provide a spacing after the mark down heading symbols ( For eg : Incorrect: ##This is not a heading
-
 Correct: ## This is a heading)
 2. **Logical Flow**: Organize from basic concepts to advanced topics
 3. **Comprehensive Coverage**: Include definitions, explanations, examples, formulas, and applications
 4. **Proper Spacing**: Use double line breaks between sections for readability
+Headings: Use #, ##, ###, etc., with a space after the hash.
+
+Lists: Use - for unordered and 1. for ordered lists. Ensure proper indentation.
+
+Code Blocks: Enclose all code examples in triple backticks  and include the language identifier (e.g., ````python). Use single backticks  for inline code.
+
+Emphasis: Use **double asterisks** for bold and *single asterisks* for italics.
+
+Blockquotes: Use > at the beginning of each line for quoted text.
+
+Mathematical Equations:
+
+Inline math: $your_latex_here$
+
+Display math: $$your_latex_here$$
+Ensure correct LaTeX syntax within the dollar signs.
+
 
 ## Formatting Standards:
 - **Main Topics**: Use ## (double hash) for major sections
@@ -96,62 +102,18 @@ Correct: ## This is a heading)
 - **Emphasis**: Use *italics* for emphasis and technical terms
 - **Lists**: Use proper bullet points (-) and numbered lists (1., 2., 3.)
 - **Key Notes**: Use blockquotes (>) for important takeaways
-- **Formulas**: Use code blocks (\`\`\`) for complex formulas when needed
+- **Formulas**: Use code blocks for complex formulas when needed
 - **Section Breaks**: Use horizontal rules (---) between major sections
 
 ## Content Requirements:
 1. **Detailed Definitions**: Explain every key term, concept, and terminology with crystal clear definitions
 2. **Mathematical Formulas**: Include ALL relevant formulas, equations, and mathematical relationships
 3. **Numerical Examples**: Provide step-by-step solved examples with detailed calculations
-4. **Theoretical Explanations**: Break down complex theories into simple, understandable parts
-5. **Practical Applications**: Real-world examples and applications of the concepts
-6. **Problem-Solving Techniques**: Methods and strategies for solving related problems
-7. **Practice Questions**: Include various types of questions with detailed solutions
-8. **Summary and Review**: Comprehensive summary points for quick revision
 
-## Example Structure:
-\`\`\`
-## Main Topic Name
 
-### Definition and Basic Concepts
-- **Key Term 1**: Clear definition
-- **Key Term 2**: Clear definition
 
-### Fundamental Principles
-1. First principle explanation
-2. Second principle explanation
-
-### Mathematical Formulas
-$$Important Formula = \\frac{expression}{here}$$
-
-### Practical Examples
-#### Example 1: Problem Title
-**Given**: Problem statement
-**Solution**: Step-by-step solution
-
-### Applications
-- Real-world application 1
-- Real-world application 2
-
-> **Key Takeaway**: Important summary point
-
----
-\`\`\`
-
-IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation:
-- For inline math: $expression$ (e.g., $E = mc^2$, $\\pi r^2$, $\\frac{1}{2}mv^2$)
-- For display math: $$expression$$ (e.g., $$\\frac{d}{dx}f(x) = f'(x)$$, $$\\int_0^\\infty e^{-x} dx = 1$$)
-- For chemical formulas: Use proper notation like H_2O, CO_2, C_6H_{12}O_6
-- For complex equations: Use proper LaTeX formatting with \\frac{}{}, \\sqrt{}, \\sum_{}, \\int_{}, etc.
-- Include Greek letters: \\alpha, \\beta, \\gamma, \\delta, \\theta, \\lambda, \\mu, \\pi, \\sigma, \\omega
-- Use proper mathematical operators: \\times, \\div, \\pm, \\leq, \\geq, \\neq, \\approx
-- Include proper mathematical symbols and notation where relevant
-
-Examples of good LaTeX formatting:
-- Quadratic formula: $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$
-- Kinetic energy: $KE = \\frac{1}{2}mv^2$
-- Photosynthesis: $6CO_2 + 6H_2O \\rightarrow C_6H_{12}O_6 + 6O_2$
-- Integral: $$\\int_a^b f(x) dx = F(b) - F(a)$$`;
+IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation`
+;
 
     try {
       const response = await this.genAI.models.generateContent({
