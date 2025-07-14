@@ -65,7 +65,7 @@ IMPORTANT: For any mathematical expressions, formulas, or equations, please use 
 - Include proper mathematical symbols and notation where relevant
 
 
-      Make elaborate and detailed study notes in simple language on the topic: "${topic}"
+      `Make elaborate and detailed study notes in simple language on the topic: "${topic}"
 
 CRITICAL FORMATTING AND STRUCTURE REQUIREMENTS:
 
@@ -112,8 +112,7 @@ Ensure correct LaTeX syntax within the dollar signs.
 
 
 
-IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation`
-:
+IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation`;
 
     try {
       const response = await this.genAI.models.generateContent({
