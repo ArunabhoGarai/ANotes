@@ -66,6 +66,8 @@ IMPORTANT: For any mathematical expressions, formulas, or equations, please use 
 
 
       `Make elaborate and detailed study notes in simple language on the topic: "${topic}"
+  }
+}
 
 CRITICAL FORMATTING AND STRUCTURE REQUIREMENTS:
 
@@ -311,6 +313,7 @@ FORMATTING REQUIREMENTS:
 IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation:
 - For inline math: $expression$ (e.g., $E = mc^2$, $\\pi r^2$, $\\frac{1}{2}mv^2$)
 - For display math: $$expression$$ (e.g., $$\\frac{d}{dx}f(x) = f'(x)$$, $$\\int_0^\\infty e^{-x} dx = 1$$)
+)
 - For chemical formulas: Use proper notation like H_2O, CO_2, C_6H_{12}O_6
 - For complex equations: Use proper LaTeX formatting with \\frac{}{}, \\sqrt{}, \\sum_{}, \\int_{}, etc.
 - Include Greek letters: \\alpha, \\beta, \\gamma, \\delta, \\theta, \\lambda, \\mu, \\pi, \\sigma, \\omega
