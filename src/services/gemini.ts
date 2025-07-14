@@ -62,10 +62,8 @@ CRITICAL FORMATTING REQUIREMENTS:
 - Use horizontal rules (---) to separate major sections
 
 IMPORTANT: For any mathematical expressions, formulas, or equations, please use LaTeX notation
-- Include proper mathematical symbols and notation where relevant
 
-
-      `Make elaborate and detailed study notes in simple language on the topic: "${topic}"
+      : `Make elaborate and detailed study notes in simple language on the topic: "${topic}"
   }
 }
 
