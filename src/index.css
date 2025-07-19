@@ -108,7 +108,7 @@ mjx-container {
 }
 
 .math-content ins {
-  @apply bg-green-100 text-green-800 no-underline px-1 rounded;
+  @apply bg-green-100 text-green-800 no-underline px-1 rounded; 
 }
 
 /* Enhanced subscript and superscript */
