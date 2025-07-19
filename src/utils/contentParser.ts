@@ -357,7 +357,7 @@ export class ContentParser {
       .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
       
       // Lists
-      .replace(/^\s*[\*\-]\s+(.*$)/gm, '<li>$1</li>')
+      .replace(/^\s*[\*\-]\s*(.*$)/gm, '<li>$1</li>')
       .replace(/^\s*\d+\.\s+(.*$)/gm, '<li>$1</li>')
       
       // Wrap consecutive list items
