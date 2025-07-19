@@ -10,7 +10,7 @@ export class ContentParser {
         linkify: true,
         typographer: true,
         breaks: true,
-        quotes: '"\'"',
+        quotes: '""\'\'',
       });
 
       // Add plugins if available
@@ -40,7 +40,11 @@ export class ContentParser {
       }
 
       // Custom rule for math expressions - preserve them during markdown processing
-      md.renderer.rules.text = function (tokens: any[], idx: number) {
+      const defaultTextRenderer = md.renderer.rules.text || function(tokens, idx) {
+        return md.utils.escapeHtml(tokens[idx].content);
+      };
+      
+      md.renderer.rules.text = function (tokens: any[], idx: number, options: any, env: any, renderer: any) {
         const token = tokens[idx];
         let content = token.content;
         
@@ -52,7 +56,7 @@ export class ContentParser {
           return `<span class="math-inline-placeholder">${match}</span>`;
         });
         
-        return content;
+        return md.utils.escapeHtml(content);
       };
 
       // Custom rule for code blocks to add syntax highlighting
@@ -236,8 +240,9 @@ export class ContentParser {
       // Clean up the content first
       let processedContent = this.cleanupContent(content);
       
-      // Ensure ### headings start on new lines
-      processedContent = processedContent.replace(/([^\n])(\s*###)/g, '$1\n$2');
+      // Ensure headings start on new lines and have proper spacing
+      processedContent = processedContent.replace(/([^\n])(\s*#{1,6}\s)/g, '$1\n\n$2');
+      processedContent = processedContent.replace(/\n{3,}/g, '\n\n'); // Clean up excessive newlines
       
       // Initialize markdown-it renderer
       this.initializeMarkdownRenderer();
@@ -333,10 +338,12 @@ export class ContentParser {
     // Enhanced basic markdown parsing fallback
     return content
       // Headers
-      .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
-      .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-      .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-      .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+      .replace(/^######\s+(.*$)/gm, '<h6>$1</h6>')
+      .replace(/^#####\s+(.*$)/gm, '<h5>$1</h5>')
+      .replace(/^####\s+(.*$)/gm, '<h4>$1</h4>')
+      .replace(/^###\s+(.*$)/gm, '<h3>$1</h3>')
+      .replace(/^##\s+(.*$)/gm, '<h2>$1</h2>')
+      .replace(/^#\s+(.*$)/gm, '<h1>$1</h1>')
       
       // Bold and italic
       .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')
@@ -350,12 +357,11 @@ export class ContentParser {
       .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
       
       // Lists
-      .replace(/^[\s]*\*[\s]+(.*$)/gm, '<li>$1</li>')
-      .replace(/^[\s]*-[\s]+(.*$)/gm, '<li>$1</li>')
-      .replace(/^[\s]*\d+\.[\s]+(.*$)/gm, '<li>$1</li>')
+      .replace(/^\s*[\*\-]\s+(.*$)/gm, '<li>$1</li>')
+      .replace(/^\s*\d+\.\s+(.*$)/gm, '<li>$1</li>')
       
       // Wrap consecutive list items
-      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+      .replace(/(<li>.*?<\/li>(?:\s*<li>.*?<\/li>)*)/gs, '<ul>$1</ul>')
       
       // Blockquotes
       .replace(/^>\s*(.*$)/gm, '<blockquote>$1</blockquote>')
@@ -365,9 +371,17 @@ export class ContentParser {
       .replace(/^\*\*\*$/gm, '<hr>')
       
       // Line breaks and paragraphs
-      .replace(/\n\n/g, '</p><p>')
-      .replace(/^/, '<p>')
-      .replace(/$/, '</p>')
+      .split('\n\n')
+      .map(paragraph => paragraph.trim())
+      .filter(paragraph => paragraph.length > 0)
+      .map(paragraph => {
+        // Don't wrap headings, lists, blockquotes, or code blocks in paragraphs
+        if (paragraph.match(/^<(h[1-6]|ul|ol|li|blockquote|pre|hr)/)) {
+          return paragraph;
+        }
+        return `<p>${paragraph}</p>`;
+      })
+      .join('\n')
       
       // Clean up empty paragraphs
       .replace(/<p><\/p>/g, '')
