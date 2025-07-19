@@ -118,8 +118,6 @@ mjx-container {
   line-height: 0;
   position: relative;
   vertical-align: baseline;
-  display: inline;
-  white-space: nowrap;
 }
 
 .math-content sub {
@@ -130,32 +128,6 @@ mjx-container {
   top: -0.5em;
 }
 
-/* Prevent line breaks in mathematical expressions */
-.math-content sup,
-.math-content sub {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-}
-
-/* Ensure mathematical expressions stay together */
-.math-content .equation,
-.math-content .chemical-equation {
-  white-space: nowrap;
-  display: inline-block;
-}
-
-/* Fix spacing for inline mathematical elements */
-.math-inline {
-  white-space: nowrap;
-  display: inline-block;
-}
-
-/* Prevent word wrapping in mathematical content */
-.math-content code {
-  white-space: nowrap;
-}
 /* Enhanced footnotes (markdown-it-footnote) */
 .math-content .footnote-ref {
   @apply text-blue-600 hover:text-blue-800 no-underline;
