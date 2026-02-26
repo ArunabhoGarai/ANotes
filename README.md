@@ -1,4 +1,4 @@
-# StudyMind AI - AI-Powered Study Notes Generator
+# ANotes - AI-Powered Study Notes Generator
 
 A beautiful, modern web application that generates comprehensive study notes using Google's Gemini 2.0 Flash model.
 
@@ -43,7 +43,7 @@ A beautiful, modern web application that generates comprehensive study notes usi
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS
 - **Icons**: Lucide React
-- **AI Integration**: OpenRouter API with DeepSeek R1 model
+- **AI Integration**: Gemini 2.0 flash
 - **Build Tool**: Vite
 
 ## API Integration
